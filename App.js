@@ -1,15 +1,12 @@
+import "react-native-gesture-handler";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-import SignIn from './screens/Authentication/SignIn';
-import SignUp from './screens/Authentication/SignUp';
-import ForgetPassword from './screens/Authentication/ForgetPassword';
+import AppNavigator from './navigators/AppNavigator';
 
 export default function App() {
   return (
-    <>
-      <ForgetPassword />
-    </>
+    <AppNavigator />
   );
 }
 

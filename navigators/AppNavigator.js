@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+
+// Navigators
+import AuthStackNavigator from './AuthStackNavigator'
 
 const AppNavigator = () => {
   return (
-    <View>
-      <Text>AppNavigator</Text>
-    </View>
+    <NavigationContainer>
+      <AuthStackNavigator />
+    </NavigationContainer>
   )
 }
 
 export default AppNavigator
-
-const styles = StyleSheet.create({})

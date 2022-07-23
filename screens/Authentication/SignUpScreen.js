@@ -13,22 +13,22 @@ import {
 // import LineComponent from "../../components/lineComponent";
 
 
-const SignUp = () => {
+const SignUpScreen = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
   return (
     <View style={styles.container}>
 
-        <View style={{ marginBottom: 25 }}>
+        <View style={{ marginTop: 40, marginBottom:30 }}>
             <Image style={styles.image} source={require("../../assets/logo/logo.png")} />
         </View>
  
         <StatusBar style="auto" />
 
         <View style={styles.inputViewContainer}>
-            <View style={styles.inputViewLabel}>
-                <Text>Email</Text>
+            <View>
+                <Text style={styles.inputViewLabel}>Email</Text>
             </View>
             <View style={styles.inputView}>
                 <TextInput
@@ -39,8 +39,8 @@ const SignUp = () => {
                 />
             </View>
 
-            <View style={styles.inputViewLabel}>
-                <Text>Password</Text>
+            <View>
+                <Text style={styles.inputViewLabel}>Password</Text>
             </View>
             <View style={styles.inputView}>
                 <TextInput
@@ -52,8 +52,8 @@ const SignUp = () => {
                 />
             </View>
 
-            <View style={styles.inputViewLabel}>
-                <Text>Confirm Password</Text>
+            <View>
+                <Text style={styles.inputViewLabel}>Confirm Password</Text>
             </View>
             <View style={styles.inputView}>
                 <TextInput
@@ -72,7 +72,7 @@ const SignUp = () => {
 
         <TouchableOpacity
             style={styles.bottomLink}
-            onPress={() => console.log( "Sign In Screen" )}
+            onPress={() => navigation.navigate( "SignIn" ) }
         >
             <Text>Already Have An Account?</Text>
         </TouchableOpacity>
@@ -89,14 +89,14 @@ const SignUp = () => {
         <View style={{marginBottom:20,flexDirection:"row",alignItems:"center",justifyContent:"center"}}>
             <TouchableOpacity
                 style={{marginHorizontal:10}}
-                onPress={() => console.log("GOOGLE SignUp")}
+                onPress={() => console.log("GOOGLE Screen")}
             >
                 <Image  style={{width: 34, height:34}} source={require( "../../assets/social-icons/google.png" )} />
             </TouchableOpacity>
 
             <TouchableOpacity
                 style={{marginHorizontal:10}}
-                onPress={() => console.log("INSTAGRAM SignUp")}
+                onPress={() => console.log("INSTAGRAM Screen")}
             >
                 <Image  style={{width: 34, height:34}} source={require( "../../assets/social-icons/instagram.png" )} />
             </TouchableOpacity>
@@ -124,14 +124,14 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignUpScreen
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       position:"relative"
     },
     inputViewContainer: {
@@ -150,10 +150,10 @@ const styles = StyleSheet.create({
         borderColor: "#C4C7C4"
     },
     inputViewLabel: {
-        fontWeight: "800",
+        fontWeight: "900",
         fontSize: 17,
-        marginBottom: 10,
-        marginLeft:20
+        marginLeft:20,
+        marginBottom:5
     },
     TextInput: {
         height: 50,

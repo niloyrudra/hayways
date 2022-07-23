@@ -10,25 +10,23 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-// import LineComponent from "../../components/lineComponent";
-
-
-const SignIn = () => {
+const SignInScreen = ( {navigation} ) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
   return (
     <View style={styles.container}>
 
-        <View style={{ marginBottom: 25 }}>
+        <View style={{ marginTop: 40, marginBottom:30 }}>
             <Image style={styles.image} source={require("../../assets/logo/logo.png")} />
         </View>
  
         <StatusBar style="auto" />
 
         <View style={styles.inputViewContainer}>
-            <View style={styles.inputViewLabel}>
-                <Text>Email</Text>
+
+            <View>
+                <Text style={styles.inputViewLabel}>Email</Text>
             </View>
             <View style={styles.inputView}>
                 <TextInput
@@ -39,8 +37,8 @@ const SignIn = () => {
                 />
             </View>
 
-            <View style={styles.inputViewLabel}>
-                <Text>Password</Text>
+            <View>
+                <Text style={styles.inputViewLabel}>Password</Text>
             </View>
             <View style={styles.inputView}>
                 <TextInput
@@ -54,12 +52,15 @@ const SignIn = () => {
         </View>
  
         <View style={styles.infoViewContainer}>
+
             <TouchableOpacity style={{flexDirection:"row",justifyContent:"center"}}>
                 <Image style={styles.circleCheck} source={require("../../assets/check2-circle.png")} />
                 <Text style={styles.infoText}>Keep Me logged in</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={ () => navigation.navigate( "ForgotPassword" ) }
+            >
                 <Text style={styles.infoText}>Forgot Password?</Text>
             </TouchableOpacity>
         </View>
@@ -70,7 +71,7 @@ const SignIn = () => {
 
         <TouchableOpacity
             style={styles.bottomLink}
-            onPress={() => console.log( "Sign Up Screen" )}
+            onPress={ () => navigation.navigate( "SignUp" ) }
         >
             <Text>Need To Create An Account?</Text>
         </TouchableOpacity>
@@ -82,14 +83,14 @@ const SignIn = () => {
   )
 }
 
-export default SignIn
+export default SignInScreen
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       position:"relative"
     },
     inputViewContainer: {
@@ -108,10 +109,10 @@ const styles = StyleSheet.create({
         borderColor: "#C4C7C4"
     },
     inputViewLabel: {
-        fontWeight: "800",
+        fontWeight: "900",
         fontSize: 17,
-        marginBottom: 10,
-        marginLeft:20
+        marginLeft:20,
+        marginBottom:5
     },
     TextInput: {
         height: 50,
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         width: 280,
+        marginTop:-8
     },
     circleCheck:{
         height: 12,

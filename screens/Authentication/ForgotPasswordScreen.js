@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const ForgetPassword = () => {
+const ForgotPasswordScreen = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
 
   return (
@@ -46,7 +46,7 @@ const ForgetPassword = () => {
   )
 }
 
-export default ForgetPassword
+export default ForgotPasswordScreen
 
 const styles = StyleSheet.create({
     container: {
